@@ -26,7 +26,6 @@ struct rtdb_test: View {
 
     
     var body: some View {
-        //var _: Void = self.observeData()
         
         NavigationView{
             List(){

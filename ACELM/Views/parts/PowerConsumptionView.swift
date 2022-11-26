@@ -20,25 +20,21 @@ struct PowerConsumptionView: View {
     @Binding var Outlet2: Outlet
     @Binding var Outlet3: Outlet
     
+    @Binding var rate: Double
+    
     var ref1 = Database.database().reference()
     
     var body: some View {
-        Form{
-            Section(header: Text("Power Consumption View")){
-                //Text("\n\n\n\n**This is where the graph will be\n\n\n")
-                Text("Outlet 1: \(Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value)   ~$")
+        Section(header: Text("Power Consumption View")){
+            Section{
+                
+                Text("Outlet 1: \(Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value)   ~$\(String(format: "%.2f", Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value * rate))")
                 Text("Outlet 2: 0   ~$")
                 Text("Outlet 3: 0   ~$")
                 
             }
             
             Section(){
-    //                    Text("Outlet View")
-    //                    Picker("Oulet View", selection: $selectedGraph){
-    //                        ForEach(viewGraphOf.allCases) { graphView in
-    //                            Text(graphView.rawValue.capitalized)
-    //                        }
-    //                    }
                 
                 Text("Time Frame (Hours)")
                 Picker("Time Frame", selection: $selectedTimeFrame){
@@ -71,8 +67,10 @@ struct PowerConsumptionView_Previews: PreviewProvider {
     @State static var Outlet1: Outlet = Outlet(name: "name1", status: true, powerStream: [0.0:0.0])
     @State static var Outlet2: Outlet = Outlet(name: "name2", status: true, powerStream: [0.0:0.0])
     @State static var Outlet3: Outlet = Outlet(name: "name3", status: true, powerStream: [0.0:0.0])
+    @State static var rate = 0.0
     
     static var previews: some View {
-        PowerConsumptionView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3)
+        
+        PowerConsumptionView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3, rate: $rate)
     }
 }

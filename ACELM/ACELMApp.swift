@@ -31,33 +31,19 @@ struct ACELM: App {
     @State var Outlet2 = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
     @State var Outlet3 = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
     
+    @State var rate = 0.0
+    
     init(){
         FirebaseApp.configure()
     }
        
     var body: some Scene {
         WindowGroup {
-            ContentView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3)
+            ContentView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3, rate: $rate)
             //rtdb_test(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3)
+            //location_test()
+            //JSON_test()
+            //PriceManagerView()
         }
     }
 }
-
-//// when integrating, each outlet should ask the server what its status is and use that
-//struct Outlet{
-//    var name: String
-//    var status: Bool
-//    
-//    mutating func toggleStatus(){
-//        // send server command to toggle an outlet, once we recieve confirmation, then toggle
-//        status = !status
-//    }
-//    
-//    func displayStatus() -> String{
-//        if status{
-//            return "ON"
-//        }
-//        return "OFF"
-//    }
-//}
-

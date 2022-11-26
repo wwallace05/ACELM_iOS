@@ -29,6 +29,12 @@
 		413E6269290853420043EB79 /* outlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E6268290853420043EB79 /* outlet.swift */; };
 		419D29D2292C081900342D6D /* PowerConsumptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29D1292C081900342D6D /* PowerConsumptionView.swift */; };
 		419D29D5292C192A00342D6D /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 419D29D4292C192A00342D6D /* OrderedCollections */; };
+		419D29D7292C5F6D00342D6D /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29D6292C5F6D00342D6D /* DeviceLocationService.swift */; };
+		419D29DA292C5FD400342D6D /* location_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29D9292C5FD400342D6D /* location_test.swift */; };
+		419D29DE292D8F5600342D6D /* JSON_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29DD292D8F5600342D6D /* JSON_Manager.swift */; };
+		419D29E0292D918400342D6D /* PriceManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29DF292D918400342D6D /* PriceManagerView.swift */; };
+		419D29E2292DAD3400342D6D /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29E1292DAD3400342D6D /* user.swift */; };
+		419D29E4292DB84A00342D6D /* JSON_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D29E3292DB84A00342D6D /* JSON_test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +72,12 @@
 		413E6266290850CE0043EB79 /* OutletControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletControl.swift; sourceTree = "<group>"; };
 		413E6268290853420043EB79 /* outlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outlet.swift; sourceTree = "<group>"; };
 		419D29D1292C081900342D6D /* PowerConsumptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerConsumptionView.swift; sourceTree = "<group>"; };
+		419D29D6292C5F6D00342D6D /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+		419D29D9292C5FD400342D6D /* location_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location_test.swift; sourceTree = "<group>"; };
+		419D29DD292D8F5600342D6D /* JSON_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_Manager.swift; sourceTree = "<group>"; };
+		419D29DF292D918400342D6D /* PriceManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceManagerView.swift; sourceTree = "<group>"; };
+		419D29E1292DAD3400342D6D /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		419D29E3292DB84A00342D6D /* JSON_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +174,11 @@
 		413E626029084B4B0043EB79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				419D29DD292D8F5600342D6D /* JSON_Manager.swift */,
 				413E626129084B840043EB79 /* Graphing.swift */,
 				413E6268290853420043EB79 /* outlet.swift */,
+				419D29D6292C5F6D00342D6D /* DeviceLocationService.swift */,
+				419D29E1292DAD3400342D6D /* user.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -172,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				413E6238290849690043EB79 /* ContentView.swift */,
+				419D29D8292C5FA200342D6D /* Tests */,
 				413E626A290854B80043EB79 /* parts */,
 			);
 			path = Views;
@@ -182,10 +198,20 @@
 			children = (
 				413E6266290850CE0043EB79 /* OutletControl.swift */,
 				413E626429084C3F0043EB79 /* GraphingView.swift */,
-				41232DE4292832300085EFD2 /* rtdb_test.swift */,
 				419D29D1292C081900342D6D /* PowerConsumptionView.swift */,
+				419D29DF292D918400342D6D /* PriceManagerView.swift */,
 			);
 			path = parts;
+			sourceTree = "<group>";
+		};
+		419D29D8292C5FA200342D6D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				41232DE4292832300085EFD2 /* rtdb_test.swift */,
+				419D29D9292C5FD400342D6D /* location_test.swift */,
+				419D29E3292DB84A00342D6D /* JSON_test.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,14 +359,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419D29E2292DAD3400342D6D /* user.swift in Sources */,
 				413E626529084C3F0043EB79 /* GraphingView.swift in Sources */,
 				413E6267290850CE0043EB79 /* OutletControl.swift in Sources */,
+				419D29E4292DB84A00342D6D /* JSON_test.swift in Sources */,
+				419D29E0292D918400342D6D /* PriceManagerView.swift in Sources */,
+				419D29DA292C5FD400342D6D /* location_test.swift in Sources */,
 				413E6239290849690043EB79 /* ContentView.swift in Sources */,
 				41232DE5292832300085EFD2 /* rtdb_test.swift in Sources */,
+				419D29DE292D8F5600342D6D /* JSON_Manager.swift in Sources */,
 				419D29D2292C081900342D6D /* PowerConsumptionView.swift in Sources */,
 				413E626229084B840043EB79 /* Graphing.swift in Sources */,
 				413E6269290853420043EB79 /* outlet.swift in Sources */,
 				413E6237290849690043EB79 /* ACELMApp.swift in Sources */,
+				419D29D7292C5F6D00342D6D /* DeviceLocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +533,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ACELM/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to estimate cost";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -529,6 +562,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ACELM/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to estimate cost";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -555,6 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.ACELMTests;
@@ -574,6 +609,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.ACELMTests;
@@ -592,6 +628,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.ACELMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -609,6 +646,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.ACELMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
