@@ -78,6 +78,9 @@
 		419D29DF292D918400342D6D /* PriceManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceManagerView.swift; sourceTree = "<group>"; };
 		419D29E1292DAD3400342D6D /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		419D29E3292DB84A00342D6D /* JSON_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_test.swift; sourceTree = "<group>"; };
+		419D29E52931DA7700342D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		419D29E62931F13000342D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		419D29E72931F14B00342D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		413E6235290849690043EB79 /* ACELM */ = {
 			isa = PBXGroup;
 			children = (
+				419D29E52931DA7700342D6D /* Info.plist */,
 				413872BC292407FE00754CCE /* GoogleService-Info.plist */,
 				413E6236290849690043EB79 /* ACELMApp.swift */,
 				413E626329084B9D0043EB79 /* Views */,
@@ -157,6 +161,7 @@
 		413E62462908496A0043EB79 /* ACELMTests */ = {
 			isa = PBXGroup;
 			children = (
+				419D29E62931F13000342D6D /* Info.plist */,
 				413E62472908496A0043EB79 /* ACELMTests.swift */,
 			);
 			path = ACELMTests;
@@ -165,6 +170,7 @@
 		413E62502908496A0043EB79 /* ACELMUITests */ = {
 			isa = PBXGroup;
 			children = (
+				419D29E72931F14B00342D6D /* Info.plist */,
 				413E62512908496A0043EB79 /* ACELMUITests.swift */,
 				413E62532908496A0043EB79 /* ACELMUITestsLaunchTests.swift */,
 			);
@@ -531,8 +537,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ACELM/Preview Content\"";
+				DEVELOPMENT_TEAM = H3J45N2JB6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ACELM/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to estimate cost";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -560,8 +568,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ACELM/Preview Content\"";
+				DEVELOPMENT_TEAM = H3J45N2JB6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ACELM/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to estimate cost";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -589,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ACELMTests/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -609,6 +620,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ACELMTests/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -627,7 +639,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H3J45N2JB6;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ACELMUITests/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.ACELMUITests;
@@ -645,7 +659,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H3J45N2JB6;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ACELMUITests/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.ACELMUITests;

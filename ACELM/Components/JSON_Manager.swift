@@ -34,19 +34,22 @@ struct Outputs: Codable {
     var residential = 0.0
 
     enum CodingKeys: String, CodingKey {
-        case company_id
-        case utility_name
-        case utility_info
-        case commercial, industrial, residential
+        case company_id = "company_id"
+        case utility_name = "utility_name"
+        case utility_info = "utility_info"
+        case commercial = "commercial"
+        case industrial = "industrial"
+        case residential = "residential"
     }
 }
 
 struct utilityInfo: Codable {
-    var company_id, utility_name: String
+    var company_id: String?
+    var utility_name: String
 
     enum CodingKeys: String, CodingKey {
-        case company_id
-        case utility_name
+        case company_id = "company_id"
+        case utility_name = "utility_name"
     }
 }
 

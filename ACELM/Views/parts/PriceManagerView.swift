@@ -29,11 +29,14 @@ class ViewModel: ObservableObject{
             return
         }
         
+        //print(url)
+        
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data, error == nil else {
                 print("\n\n\n\nbad data")
                 return
             }
+            //print(String(data: data, encoding: .utf8)!)
             
             // converting to JSON
             do {
@@ -42,6 +45,7 @@ class ViewModel: ObservableObject{
                 DispatchQueue.main.async {
                     self?.myProvider = provider
                     //print("\(provider)")
+                    
                 }
             }
             catch{
