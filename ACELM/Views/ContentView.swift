@@ -39,9 +39,9 @@ struct ContentView: View {
 
 // will not apear in final rollout
 struct ContentView_Previews: PreviewProvider {
-    @State static var Outlet1: Outlet = Outlet(name: "name1", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet2: Outlet = Outlet(name: "name2", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet3: Outlet = Outlet(name: "name3", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
     @State static var rate = 0.0
     
     static var previews: some View {

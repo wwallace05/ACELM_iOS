@@ -28,9 +28,9 @@ struct PowerConsumptionView: View {
         Section(header: Text("Power Consumption View")){
             Section{
                 
-                Text("Outlet 1: \(Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value)   ~$\(String(format: "%.2f", Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value * rate))")
-                Text("Outlet 2: 0   ~$")
-                Text("Outlet 3: 0   ~$")
+                Text("\(Outlet1.name): \(String(format: "%.2f", Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value)) (W)           \t\t~$\(String(format: "%.2f", Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value * rate))")
+                Text("\(Outlet2.name): 0 (W) \t\t\t\t ~$")
+                Text("\(Outlet3.name): 0 (W) \t\t\t\t ~$")
                 
             }
             
@@ -64,9 +64,9 @@ struct PowerConsumptionView: View {
 }
 
 struct PowerConsumptionView_Previews: PreviewProvider {
-    @State static var Outlet1: Outlet = Outlet(name: "name1", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet2: Outlet = Outlet(name: "name2", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet3: Outlet = Outlet(name: "name3", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
     @State static var rate = 0.0
     
     static var previews: some View {

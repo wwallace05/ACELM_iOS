@@ -73,7 +73,7 @@ struct PriceManagerView: View {
 
         Section(header: Text("Energy Provider")){
             Text("Provider: \(viewModel.myProvider.outputs.utility_name)")
-            Text("Rate ($/kWh): \(viewModel.myProvider.outputs.residential)")
+            Text("Rate ($/kWh): \(String(format: "%.2f", viewModel.myProvider.outputs.residential))")
         }.onAppear{
             observeCoordinateUpdates()
             observeDeniedLocationAccess()
