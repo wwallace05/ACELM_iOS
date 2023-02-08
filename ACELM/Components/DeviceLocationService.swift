@@ -39,6 +39,12 @@ class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObje
             deniedLocationAccessPublisher.send()
         }
     }
+    
+    //test code stop updating func
+    func stopLocationUpdates(){
+        print("\nStopping location updates\n")
+        locationManager.stopUpdatingLocation()
+    }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
@@ -54,6 +60,7 @@ class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObje
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations)
+        
         guard let location = locations.last else { return }
         coordinatesPublisher.send(location.coordinate)
     }

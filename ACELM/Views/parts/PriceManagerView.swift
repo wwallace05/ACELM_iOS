@@ -40,12 +40,10 @@ class ViewModel: ObservableObject{
             
             // converting to JSON
             do {
-                
                 let provider: ProviderData = try JSONDecoder().decode(ProviderData.self, from: data)
                 DispatchQueue.main.async {
                     self?.myProvider = provider
                     //print("\(provider)")
-                    
                 }
             }
             catch{
@@ -69,6 +67,8 @@ struct PriceManagerView: View {
     
     @Binding var rate: Double
     
+    //var coordinatesAcquired = false
+    
     var body: some View {
 
         Section(header: Text("Energy Provider")){
@@ -78,11 +78,19 @@ struct PriceManagerView: View {
             observeCoordinateUpdates()
             observeDeniedLocationAccess()
             deviceLocationService.requestLocationUpdates()
+
         }
     }
+    
+//    mutating func flipCoordinatesAcquired(){
+//        if (coordinates.lat != 0 || coordinates.lon != 0){
+//            coordinatesAcquired = true
+//        }
+//    }
 
     func passRate(){
         rate = viewModel.myProvider.outputs.residential
+        deviceLocationService.stopLocationUpdates()
     }
     
     func observeCoordinateUpdates() {
@@ -95,6 +103,7 @@ struct PriceManagerView: View {
                 
                 viewModel.fetch(lat: coordinates.latitude, lon: coordinates.longitude)
                 passRate()
+                
                 return
             }
             .store(in: &tokens)

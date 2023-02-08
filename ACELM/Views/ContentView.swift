@@ -9,8 +9,35 @@ import SwiftUI
 import FirebaseAnalytics
 import FirebaseAnalyticsSwift
 
-struct ContentView: View {
+//struct ContentView: View {
+//
+//    @Binding var Outlet1: Outlet
+//    @Binding var Outlet2: Outlet
+//    @Binding var Outlet3: Outlet
+//
+//    @Binding var rate: Double
+//
+//    var body: some View {
+//        NavigationView {
+//            Form {
+//                PowerConsumptionView(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3, rate: $rate)
+//
+//                //GraphingView()
+//
+//                OutletControl(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3)
+//
+//                PriceManagerView(rate: $rate)
+//
+//            }
+//            .navigationTitle("Energy Load Monitor")
+//        }
+//        .analyticsScreen(name: "\(ContentView.self)")
+//
+//    }
+//}
 
+struct ContentView: View {
+    
     @Binding var Outlet1: Outlet
     @Binding var Outlet2: Outlet
     @Binding var Outlet3: Outlet
@@ -18,11 +45,44 @@ struct ContentView: View {
     @Binding var rate: Double
     
     var body: some View {
+        
+        
+        
+        TabView{
+            MainView(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3, rate: $rate)
+                .tabItem {
+                    Image(systemName: "poweroutlet.strip.fill")
+                    Text("Main")
+                }
+            
+            GraphingView()
+                .tabItem {
+                    Image(systemName: "chart.xyaxis.line")
+                    Text("Graph")
+                }
+            
+            SettingsViewWrap(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3)
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+        }
+    }
+}
+
+
+
+struct MainView: View {
+    @Binding var Outlet1: Outlet
+    @Binding var Outlet2: Outlet
+    @Binding var Outlet3: Outlet
+    
+    @Binding var rate: Double
+    var body: some View {
+        
         NavigationView {
             Form {
                 PowerConsumptionView(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3, rate: $rate)
-                
-                //GraphingView()
                 
                 OutletControl(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3)
                 
@@ -30,9 +90,25 @@ struct ContentView: View {
                 
             }
             .navigationTitle("Energy Load Monitor")
+            
         }
         .analyticsScreen(name: "\(ContentView.self)")
         
+    }
+}
+
+
+struct SettingsViewWrap: View {
+    @Binding var Outlet1: Outlet
+    @Binding var Outlet2: Outlet
+    @Binding var Outlet3: Outlet
+    
+    var body: some View {
+        NavigationView{
+            Form{
+                SettingsView(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3)
+            }.navigationTitle("Settings")
+        }
     }
 }
 

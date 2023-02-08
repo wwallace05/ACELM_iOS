@@ -14,8 +14,7 @@ target 'ACELM' do
 
   target 'ACELMUITests' do
     # Pods for testing
-	pod 'Firebase/Core'
+    pod 'Firebase/Core'
 
   end
-
 end
