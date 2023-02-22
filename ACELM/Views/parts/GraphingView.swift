@@ -6,40 +6,87 @@
 //
 
 import SwiftUI
-//import SwiftCharts
-
+import Charts
 
 struct GraphingView: View {
-    let data: [(Double, Double)] = [(0, 0), (0.25, 0.5), (0.5, 0.8), (0.75, 0.3), (1, 0)]
+    
+    @Binding var Outlet1: Outlet
+    @Binding var Outlet2: Outlet
+    @Binding var Outlet3: Outlet
+    
+//    enum viewTimeFrame: String, CaseIterable, Identifiable{
+//        case Minute, Day, Week, Month, All
+//        var id: Self{self}
+//    }
+    
+    @State var selectedTimeFrame = viewTimeFrame.All
+    
+    var body: some View {
+        
+        let graph1 = aGraph(OutletX: $Outlet1, selectedTimeFrame: $selectedTimeFrame)
+        let graph2 = aGraph(OutletX: $Outlet2, selectedTimeFrame: $selectedTimeFrame)
+        let graph3 = aGraph(OutletX: $Outlet3, selectedTimeFrame: $selectedTimeFrame)
+        
+        VStack(spacing: 20) {
+            
+            Picker("Time Frame", selection: $selectedTimeFrame){
+                ForEach(viewTimeFrame.allCases) { timeView in
+                    Text(timeView.rawValue.capitalized)
+                }
+            }.pickerStyle(.segmented)
+            
+            graph1
+            graph2
+            graph3
+     
+        }.onAppear{
+            
+            
+        }
+    }
+}
 
-        var body: some View {
-            ZStack {
-                Rectangle()
-                    .fill(Color(.lightGray))
-                    .frame(width: 250, height: 200)
-                    .cornerRadius(10)
-                    .shadow(radius: 10)
-                
-                GeometryReader { geometry in
-                    Path { path in
-                        let width = min(geometry.size.width, geometry.size.height)
-                        let height = width
-                        let middle = height / 2
-                        path.move(to: CGPoint(x: 0, y: middle))
-                        for (x, y) in self.data {
-                            path.addLine(to: CGPoint(x: x * width, y: middle - y * height))
+struct aGraph: View {
+    
+    @Binding var OutletX: Outlet
+    
+    @Binding var selectedTimeFrame: viewTimeFrame
+    
+    var body: some View {
+        
+        VStack{
+            Text("\(OutletX.name) Graph")
+            if #available(iOS 16.0, *) {
+                Chart(){
+                    if (selectedTimeFrame == viewTimeFrame.All){
+                        ForEach(OutletX.graphablePowerStream){ powerDataPoint in
+                            BarMark(
+                                x: .value("time", powerDataPoint.timestamp),
+                                y: .value("power", powerDataPoint.power)
+                            )
                         }
                     }
-                    .stroke(Color.blue, lineWidth: 2)
                 }
-                .frame(width: 250, height: 200, alignment: .center)
-                .aspectRatio(1, contentMode: .fit)
+                .chartXAxisLabel(position: .bottom, alignment: .center) {
+                    Text("Time Stamp")
+                }
+                .chartYAxisLabel(position: .leading, alignment: .center) {
+                    Text("Power (kW)")
+                }
+                
+            } else {
+                Text("Please update to ios 16.0+")
             }
         }
+    }
 }
 
 struct GraphingView_Previews: PreviewProvider {
+    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
+    
     static var previews: some View {
-        GraphingView()
+        GraphingView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3)
     }
 }

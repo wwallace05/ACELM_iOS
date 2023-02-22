@@ -23,14 +23,16 @@ struct PowerConsumptionView: View {
     @Binding var rate: Double
     
     var ref1 = Database.database().reference()
+    var ref2 = Database.database().reference()
+    var ref3 = Database.database().reference()
     
     var body: some View {
         Section(header: Text("Power Consumption View")){
             Section{
                 
                 Text("\(Outlet1.name): \(String(format: "%.2f", Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value)) (W)           \t\t~$\(String(format: "%.2f", Outlet1.powerStream.elements[Outlet1.powerStream.count-1].value * rate))")
-                Text("\(Outlet2.name): 0 (W) \t\t\t\t ~$")
-                Text("\(Outlet3.name): 0 (W) \t\t\t\t ~$")
+                Text("\(Outlet2.name): \(String(format: "%.2f", Outlet2.powerStream.elements[Outlet2.powerStream.count-1].value)) (W)           \t\t~$\(String(format: "%.2f", Outlet2.powerStream.elements[Outlet2.powerStream.count-1].value * rate))")
+                Text("\(Outlet3.name): \(String(format: "%.2f", Outlet3.powerStream.elements[Outlet3.powerStream.count-1].value)) (W)           \t\t~$\(String(format: "%.2f", Outlet3.powerStream.elements[Outlet3.powerStream.count-1].value * rate))")
                 
             }
             
@@ -57,6 +59,43 @@ struct PowerConsumptionView: View {
                     let keyDouble = (keyString as NSString).doubleValue
                     let dataDouble = oSnap.value as! Double
                     Outlet1.powerStream[keyDouble] = dataDouble
+                    
+                    let powerDataPoint = powerDataPoint(timestamp: keyDouble, power: dataDouble)
+                    Outlet1.appendData(Data: powerDataPoint)
+                    
+                    print("Timestamp: \(powerDataPoint.timestamp), Power: \(powerDataPoint.power)")
+                    
+                    
+                }
+            }
+        })
+        
+        self.ref2.child("test1").observe(.value, with: {(snapshot) in
+            
+            if let oSnapShot = snapshot.children.allObjects as? [DataSnapshot]{
+                for oSnap in oSnapShot{
+                    let keyString = oSnap.key
+                    let keyDouble = (keyString as NSString).doubleValue
+                    let dataDouble = oSnap.value as! Double
+                    Outlet2.powerStream[keyDouble] = dataDouble
+                    
+                    let powerDataPoint = powerDataPoint(timestamp: keyDouble, power: dataDouble)
+                    Outlet2.appendData(Data: powerDataPoint)
+                }
+            }
+        })
+        
+        self.ref3.child("test2").observe(.value, with: {(snapshot) in
+            
+            if let oSnapShot = snapshot.children.allObjects as? [DataSnapshot]{
+                for oSnap in oSnapShot{
+                    let keyString = oSnap.key
+                    let keyDouble = (keyString as NSString).doubleValue
+                    let dataDouble = oSnap.value as! Double
+                    Outlet3.powerStream[keyDouble] = dataDouble
+                    
+                    let powerDataPoint = powerDataPoint(timestamp: keyDouble, power: dataDouble)
+                    Outlet3.appendData(Data: powerDataPoint)
                 }
             }
         })

@@ -1,0 +1,6 @@
+framework module BDGLocation {
+  umbrella header "BDGLocation-umbrella.h"
+
+  export *
+  module * { export * }
+}

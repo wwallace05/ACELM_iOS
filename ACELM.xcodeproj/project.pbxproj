@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C56DFABB9F12C750FF373C5 /* Pods_ACELMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2531EC63E8781685D6E1CD /* Pods_ACELMTests.framework */; };
+		147F66B44F64D54FDA38524C /* Pods_ACELM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0F1605D20B2D278CE6A02C /* Pods_ACELM.framework */; };
+		14F9875503BF4D1B87263C34 /* Pods_ACELM_ACELMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF3D8A1C29F0146297D1D3 /* Pods_ACELM_ACELMUITests.framework */; };
 		41232DE5292832300085EFD2 /* rtdb_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41232DE4292832300085EFD2 /* rtdb_test.swift */; };
 		413872BD292407FE00754CCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 413872BC292407FE00754CCE /* GoogleService-Info.plist */; };
 		413872C029240A3200754CCE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 413872BF29240A3200754CCE /* FirebaseAnalytics */; };
@@ -56,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18CF3D8A1C29F0146297D1D3 /* Pods_ACELM_ACELMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACELM_ACELMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41232DE4292832300085EFD2 /* rtdb_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rtdb_test.swift; sourceTree = "<group>"; };
 		413872BC292407FE00754CCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		413E6233290849690043EB79 /* ACELM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACELM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,14 @@
 		419D29E52931DA7700342D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		419D29E62931F13000342D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		419D29E72931F14B00342D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4A0F1605D20B2D278CE6A02C /* Pods_ACELM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACELM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5600E163E5E1DE6D17FFF10F /* Pods-ACELM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACELM.debug.xcconfig"; path = "Target Support Files/Pods-ACELM/Pods-ACELM.debug.xcconfig"; sourceTree = "<group>"; };
+		9CB5F7B2290DC7CEED02026E /* Pods-ACELM-ACELMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACELM-ACELMUITests.release.xcconfig"; path = "Target Support Files/Pods-ACELM-ACELMUITests/Pods-ACELM-ACELMUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9FB591AC1DA6729D290AB3B9 /* Pods-ACELMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACELMTests.release.xcconfig"; path = "Target Support Files/Pods-ACELMTests/Pods-ACELMTests.release.xcconfig"; sourceTree = "<group>"; };
+		AD81ADF1B205B8C9D968DC3C /* Pods-ACELMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACELMTests.debug.xcconfig"; path = "Target Support Files/Pods-ACELMTests/Pods-ACELMTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8EAC0AAC62336BA545F22AE /* Pods-ACELM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACELM.release.xcconfig"; path = "Target Support Files/Pods-ACELM/Pods-ACELM.release.xcconfig"; sourceTree = "<group>"; };
+		CE2531EC63E8781685D6E1CD /* Pods_ACELMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACELMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE25F91B34322A92D46E7DD7 /* Pods-ACELM-ACELMUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACELM-ACELMUITests.debug.xcconfig"; path = "Target Support Files/Pods-ACELM-ACELMUITests/Pods-ACELM-ACELMUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 				413872C029240A3200754CCE /* FirebaseAnalytics in Frameworks */,
 				419D29D5292C192A00342D6D /* OrderedCollections in Frameworks */,
 				413872CA29240A3200754CCE /* FirebaseFirestoreSwift in Frameworks */,
+				147F66B44F64D54FDA38524C /* Pods_ACELM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C56DFABB9F12C750FF373C5 /* Pods_ACELMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F9875503BF4D1B87263C34 /* Pods_ACELM_ACELMUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +141,7 @@
 				413E62502908496A0043EB79 /* ACELMUITests */,
 				413E6234290849690043EB79 /* Products */,
 				55A180F3B238FD05F716526C /* Frameworks */,
+				56DC12F7E993D97B03C132BA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,8 +243,25 @@
 		55A180F3B238FD05F716526C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A0F1605D20B2D278CE6A02C /* Pods_ACELM.framework */,
+				18CF3D8A1C29F0146297D1D3 /* Pods_ACELM_ACELMUITests.framework */,
+				CE2531EC63E8781685D6E1CD /* Pods_ACELMTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56DC12F7E993D97B03C132BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5600E163E5E1DE6D17FFF10F /* Pods-ACELM.debug.xcconfig */,
+				B8EAC0AAC62336BA545F22AE /* Pods-ACELM.release.xcconfig */,
+				CE25F91B34322A92D46E7DD7 /* Pods-ACELM-ACELMUITests.debug.xcconfig */,
+				9CB5F7B2290DC7CEED02026E /* Pods-ACELM-ACELMUITests.release.xcconfig */,
+				AD81ADF1B205B8C9D968DC3C /* Pods-ACELMTests.debug.xcconfig */,
+				9FB591AC1DA6729D290AB3B9 /* Pods-ACELMTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413E62572908496A0043EB79 /* Build configuration list for PBXNativeTarget "ACELM" */;
 			buildPhases = (
+				58F7B3FC511298DEBF4DF098 /* [CP] Check Pods Manifest.lock */,
 				413E622F290849690043EB79 /* Sources */,
 				413E6230290849690043EB79 /* Frameworks */,
 				413E6231290849690043EB79 /* Resources */,
+				AF166CE87B7EEF8D981C8E08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +300,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413E625A2908496A0043EB79 /* Build configuration list for PBXNativeTarget "ACELMTests" */;
 			buildPhases = (
+				92204C55E18BD1430CDE3D88 /* [CP] Check Pods Manifest.lock */,
 				413E623F2908496A0043EB79 /* Sources */,
 				413E62402908496A0043EB79 /* Frameworks */,
 				413E62412908496A0043EB79 /* Resources */,
@@ -283,9 +319,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413E625D2908496A0043EB79 /* Build configuration list for PBXNativeTarget "ACELMUITests" */;
 			buildPhases = (
+				53BA3F84F605EFB25829A79B /* [CP] Check Pods Manifest.lock */,
 				413E62492908496A0043EB79 /* Sources */,
 				413E624A2908496A0043EB79 /* Frameworks */,
 				413E624B2908496A0043EB79 /* Resources */,
+				14B80CEE43515AE5B251400D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,7 +369,7 @@
 			mainGroup = 413E622A290849690043EB79;
 			packageReferences = (
 				413872BE29240A3200754CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections" */,
+				419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections.git" */,
 			);
 			productRefGroup = 413E6234290849690043EB79 /* Products */;
 			projectDirPath = "";
@@ -370,6 +408,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14B80CEE43515AE5B251400D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACELM-ACELMUITests/Pods-ACELM-ACELMUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACELM-ACELMUITests/Pods-ACELM-ACELMUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACELM-ACELMUITests/Pods-ACELM-ACELMUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53BA3F84F605EFB25829A79B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACELM-ACELMUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58F7B3FC511298DEBF4DF098 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACELM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92204C55E18BD1430CDE3D88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACELMTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF166CE87B7EEF8D981C8E08 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACELM/Pods-ACELM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACELM/Pods-ACELM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACELM/Pods-ACELM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		413E622F290849690043EB79 /* Sources */ = {
@@ -543,6 +684,7 @@
 		};
 		413E62582908496A0043EB79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5600E163E5E1DE6D17FFF10F /* Pods-ACELM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -557,6 +699,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -574,6 +717,7 @@
 		};
 		413E62592908496A0043EB79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8EAC0AAC62336BA545F22AE /* Pods-ACELM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -588,6 +732,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -605,6 +750,7 @@
 		};
 		413E625B2908496A0043EB79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD81ADF1B205B8C9D968DC3C /* Pods-ACELMTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -626,6 +772,7 @@
 		};
 		413E625C2908496A0043EB79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FB591AC1DA6729D290AB3B9 /* Pods-ACELMTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -647,6 +794,7 @@
 		};
 		413E625E2908496A0043EB79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE25F91B34322A92D46E7DD7 /* Pods-ACELM-ACELMUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -667,6 +815,7 @@
 		};
 		413E625F2908496A0043EB79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CB5F7B2290DC7CEED02026E /* Pods-ACELM-ACELMUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -735,7 +884,7 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+		419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
@@ -783,7 +932,7 @@
 		};
 		419D29D4292C192A00342D6D /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = OrderedCollections;
 		};
 /* End XCSwiftPackageProductDependency section */

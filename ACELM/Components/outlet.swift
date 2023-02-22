@@ -14,17 +14,10 @@ struct Outlet{
     var name: String
     var status: Bool
     var powerStream: OrderedDictionary<Double, Double>
+    var graphablePowerStream: [powerDataPoint] = []
     
-    
-//    mutating func toggleStatus(){
-//        // send server command to toggle an outlet, once we recieve confirmation, then toggle
-//        status = !status
-//    }
-//
-//    func displayStatus() -> String{
-//        if status{
-//            return "ON"
-//        }
-//        return "OFF"
-//    }
+    mutating func appendData(Data :powerDataPoint){
+        graphablePowerStream.append(Data)
+    }
+
 }

@@ -1,11 +1,19 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'ACELM' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for ACELM
+  pod 'FirebaseCore'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseDatabase'
+
+  pod 'OrderedCollections'
+  pod 'CombineX'
+  #pod 'Foundation+'
+  pod 'BDGLocation'
 
   target 'ACELMTests' do
     inherit! :search_paths
@@ -15,6 +23,5 @@ target 'ACELM' do
   target 'ACELMUITests' do
     # Pods for testing
     pod 'Firebase/Core'
-
   end
 end
