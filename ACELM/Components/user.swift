@@ -10,3 +10,4 @@ import Foundation
 struct auser{
     var coordinates: (lat: Double, lon: Double)
 }
+

@@ -11,6 +11,7 @@ import Combine
 class ViewModel: ObservableObject{
     @Published var myProvider: ProviderData = ProviderData()
 
+    var madeCall = false
     
     func makeCallURL(lat: Double, lon: Double) -> String{
         var callURL: String
@@ -37,21 +38,34 @@ class ViewModel: ObservableObject{
                 return
             }
             //print(String(data: data, encoding: .utf8)!)
-            
+            print(">>>> API called")
             // converting to JSON
             do {
                 let provider: ProviderData = try JSONDecoder().decode(ProviderData.self, from: data)
                 DispatchQueue.main.async {
                     self?.myProvider = provider
-                    //print("\(provider)")
+                    self?.madeCall = true
+                    print(">>>> \tProvider set. Made call [\(self!.madeCall)]")
+                    //self?.setRateAndProvider(rate: &rate, sProvider: &sProvider, providerObj: provider)
                 }
+
             }
             catch{
                 print("error here")
                 print(error)
             }
         }
+        
         task.resume()
+    }
+    
+    func setRateAndProvider(rate: inout Double, sProvider: inout String, providerObj: ProviderData){
+        
+        print(">>>> Atempting to set provider/rate vars")
+        rate = providerObj.outputs.residential
+        sProvider = providerObj.outputs.utility_name
+        print(">>>> \tProvider set [\(sProvider)]")
+        print(">>>> \tRate set [\(rate)]")
     }
     
 }
@@ -63,34 +77,67 @@ struct PriceManagerView: View {
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
     
-    @StateObject var viewModel = ViewModel()
-    
     @Binding var rate: Double
+    @Binding var provider: String
     
-    //var coordinatesAcquired = false
+    @Binding var SavedRate: Double
+    @Binding var SavedProvider: String
+
     
+    @StateObject var viewModel = ViewModel()
+    @State var showingAlert = false
+    
+        
     var body: some View {
 
         Section(header: Text("Energy Provider")){
-            Text("Provider: \(viewModel.myProvider.outputs.utility_name)")
-            Text("Rate ($/kWh): \(String(format: "%.2f", viewModel.myProvider.outputs.residential))")
+            
+            Text("Provider: \(provider)")
+                .onChange(of: viewModel.myProvider.outputs.utility_name) { newValue in
+                    viewModel.setRateAndProvider(rate: &rate, sProvider: &provider, providerObj: viewModel.myProvider)
+                    SavedRate = rate
+                    SavedProvider = provider
+                    print(">>>> Saved Rate and Provider name [\(SavedProvider), \(SavedRate)]")
+                }
+            Text("Rate ($/kWh): \(String(format: "%.2f", rate))")
+            Button("Update to current location") {
+                self.showingAlert = true
+            }
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Update Location"), message: Text("Are you sure you want to update to current location?"), primaryButton: .default(Text("Update"), action: {
+                    print(">>>> Updating to current location")
+                    SavedProvider = "None"
+                    SavedRate = 0.0
+                    providerInfoCheck()
+                    //print("Updated [\(SavedProvider) , \(SavedRate)")
+                    
+                }), secondaryButton: .cancel())
+            }
         }.onAppear{
-            observeCoordinateUpdates()
-            observeDeniedLocationAccess()
-            deviceLocationService.requestLocationUpdates()
-
+            providerInfoCheck()
         }
     }
     
-//    mutating func flipCoordinatesAcquired(){
-//        if (coordinates.lat != 0 || coordinates.lon != 0){
-//            coordinatesAcquired = true
-//        }
-//    }
+    // check if we have rate and provider saved, if we dont, get coordinates and make API call
+    func providerInfoCheck(){
+        if (SavedProvider != "None" && SavedRate != 0.0){
+            // we have the provider name and rate saved
+            print(">>>> Loading saved Provider info: [\(SavedProvider) , \(SavedRate)]")
+            provider = SavedProvider
+            rate = SavedRate
+            print(">>>> Loaded. [\(provider) , \(rate)]")
+        } else {
+            print(">>>> Getting Coordinates and Provider Info")
+            observeCoordinateUpdates()
+            observeDeniedLocationAccess()
+            deviceLocationService.requestLocationUpdates()
+        }
+    }
 
     func passRate(){
         rate = viewModel.myProvider.outputs.residential
         deviceLocationService.stopLocationUpdates()
+        print(">>>> Got rate: [\(rate)]")
     }
     
     func observeCoordinateUpdates() {
@@ -100,9 +147,9 @@ struct PriceManagerView: View {
                 print("Handle \(completion) for error.")
             } receiveValue: { coordinates in
                 self.coordinates = (coordinates.latitude, coordinates.longitude)
-                
+                print(">>>> Got Coordinates: [\(coordinates.latitude) , \(coordinates.longitude)]")
                 viewModel.fetch(lat: coordinates.latitude, lon: coordinates.longitude)
-                passRate()
+                deviceLocationService.stopLocationUpdates()
                 
                 return
             }
@@ -113,7 +160,7 @@ struct PriceManagerView: View {
         deviceLocationService.deniedLocationAccessPublisher
             .receive(on: DispatchQueue.main)
             .sink {
-                print("alert.")
+                //print("alert.")
             }
             .store(in: &tokens)
     }
@@ -121,8 +168,12 @@ struct PriceManagerView: View {
 
 struct PriceManagerView_Previews: PreviewProvider {
     @State static var rate = 0.0
+    @State static var provider = ""
+    
+    @State static var SavedRate = 0.0
+    @State static var SavedProvider = ""
     
     static var previews: some View {
-        PriceManagerView(rate: $rate)
+        PriceManagerView(rate: $rate, provider: $provider, SavedRate: $SavedRate, SavedProvider: $SavedProvider)
     }
 }

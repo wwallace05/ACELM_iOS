@@ -260,7 +260,6 @@
 				AD81ADF1B205B8C9D968DC3C /* Pods-ACELMTests.debug.xcconfig */,
 				9FB591AC1DA6729D290AB3B9 /* Pods-ACELMTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -369,7 +368,7 @@
 			mainGroup = 413E622A290849690043EB79;
 			packageReferences = (
 				413872BE29240A3200754CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections.git" */,
+				419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 413E6234290849690043EB79 /* Products */;
 			projectDirPath = "";
@@ -884,7 +883,7 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections.git" */ = {
+		419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
@@ -932,7 +931,7 @@
 		};
 		419D29D4292C192A00342D6D /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 419D29D3292C192A00342D6D /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
 		};
 /* End XCSwiftPackageProductDependency section */
