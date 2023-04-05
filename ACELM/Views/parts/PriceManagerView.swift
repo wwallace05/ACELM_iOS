@@ -13,6 +13,7 @@ class ViewModel: ObservableObject{
 
     var madeCall = false
     
+    // Create String for call to nrel.gov
     func makeCallURL(lat: Double, lon: Double) -> String{
         var callURL: String
         let first = "https://developer.nrel.gov/api/utility_rates/v3.json?api_key=vF2cE7Yqpb77CKJThjNUJYO64GqByZtLnLiGmVTz"
@@ -22,6 +23,8 @@ class ViewModel: ObservableObject{
         return callURL
     }
     
+    // Once coordinates are acquired, calls makeCallURL along with error checking
+    // makes call to API, decodes response
     func fetch(lat: Double, lon: Double){
         let url = makeCallURL(lat: lat, lon: lon)
         
@@ -59,6 +62,7 @@ class ViewModel: ObservableObject{
         task.resume()
     }
     
+    // Sets local rate and provider variables upon successful API call to nrel.gov
     func setRateAndProvider(rate: inout Double, sProvider: inout String, providerObj: ProviderData){
         
         print(">>>> Atempting to set provider/rate vars")
@@ -87,7 +91,8 @@ struct PriceManagerView: View {
     @StateObject var viewModel = ViewModel()
     @State var showingAlert = false
     
-        
+    // View that displays acquired provider and rate based on user coordinates
+    // Saves any changes in local provider and rate variables to local storage
     var body: some View {
 
         Section(header: Text("Energy Provider")){
@@ -134,12 +139,14 @@ struct PriceManagerView: View {
         }
     }
 
+    // UNUSED
     func passRate(){
         rate = viewModel.myProvider.outputs.residential
         deviceLocationService.stopLocationUpdates()
         print(">>>> Got rate: [\(rate)]")
     }
     
+    // Observes coordinate updates when requested by user
     func observeCoordinateUpdates() {
         deviceLocationService.coordinatesPublisher
             .receive(on: DispatchQueue.main)
@@ -156,6 +163,7 @@ struct PriceManagerView: View {
             .store(in: &tokens)
     }
 
+    // Observes denied user location 
     func observeDeniedLocationAccess() {
         deviceLocationService.deniedLocationAccessPublisher
             .receive(on: DispatchQueue.main)

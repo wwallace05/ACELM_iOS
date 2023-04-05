@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import CoreLocation
 
+// Class used to access user location data (coordinates)
 class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
 
     var coordinatesPublisher = PassthroughSubject<CLLocationCoordinate2D, Error>()

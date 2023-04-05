@@ -43,7 +43,7 @@ struct ContentView: View {
                     Text("Main")
                 }
             
-            GraphingView(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3)
+            GraphingView(Outlet1: self.$Outlet1, Outlet2: self.$Outlet2, Outlet3: self.$Outlet3, rate: self.$rate)
                 .tabItem {
                     Image(systemName: "chart.xyaxis.line")
                     Text("Graph")

@@ -5,6 +5,8 @@
 //  Created by Will Wallace on 11/22/22.
 //
 
+// All structs required to decode JSON response from API call to nrel.gov
+
 import Foundation
 
 struct ProviderData: Codable {

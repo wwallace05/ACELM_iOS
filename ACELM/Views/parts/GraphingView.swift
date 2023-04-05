@@ -14,13 +14,15 @@ struct GraphingView: View {
     @Binding var Outlet2: Outlet
     @Binding var Outlet3: Outlet
     
+    @Binding var rate: Double
+    
     @State var selectedTimeFrame = viewTimeFrame.All
     
     @State var selectedGraphType = graphType.Power
     
     var body: some View {
         
-        let graph0 = bGraph(OutletX: $Outlet1, selectedTimeFrame: $selectedTimeFrame, selectedGraphType: $selectedGraphType)
+        let graph0 = cGraph(OutletX: $Outlet1, selectedTimeFrame: $selectedTimeFrame, selectedGraphType: $selectedGraphType, rate: $rate)
         let graph1 = aGraph(OutletX: $Outlet1, selectedTimeFrame: $selectedTimeFrame, selectedGraphType: $selectedGraphType)
         let graph2 = aGraph(OutletX: $Outlet2, selectedTimeFrame: $selectedTimeFrame, selectedGraphType: $selectedGraphType)
         let graph3 = aGraph(OutletX: $Outlet3, selectedTimeFrame: $selectedTimeFrame, selectedGraphType: $selectedGraphType)
@@ -51,6 +53,7 @@ struct GraphingView: View {
     }
 }
 
+// Phasing out
 struct aGraph: View {
     
     @Binding var OutletX: Outlet
@@ -88,6 +91,7 @@ struct aGraph: View {
     }
 }
 
+// Phasing out
 func computeDataToGraph(mainData: [powerDataPointSummary], timeFrame: viewTimeFrame) -> [powerDataPointSummary]{
     let oneMinuteAgo = Date().addingTimeInterval(-60)
     let oneDayAgo = Date().addingTimeInterval(-86400)
@@ -164,6 +168,15 @@ func selectDataToGraph(outlet: Outlet,timeFrame: viewTimeFrame) -> [powerDataPoi
     return outlet.minutePowerStream
 }
 
+// Returns sum of data being graphed
+func computePowerSum(currData: [powerDataPointSummary]) -> Double{
+    var sum = 0.0;
+    currData.forEach{ element in
+        sum += element.powerValue
+    }
+    return sum
+}
+
 // Phasing out
 struct bGraph: View {
     
@@ -217,15 +230,21 @@ struct cGraph: View {
     
     @Binding var selectedGraphType: graphType
     
+    @Binding var rate: Double
+    
     var body: some View {
         
         VStack{
             let dataToGraph = selectDataToGraph(outlet: OutletX, timeFrame: selectedTimeFrame)
+            let powerTotal = computePowerSum(currData: dataToGraph)
+            let cost = powerTotal * rate
             
             HStack{
                 Text("\(OutletX.name) Graph")
-                Text("Cost: $80").bold()
+                Text("Total: \(powerTotal) kWh").bold()
             }
+            
+            Text("Cost: $\(cost)")
             
             if #available(iOS 16.0, *) {
                 Chart(){
@@ -242,7 +261,7 @@ struct cGraph: View {
                     Text("Time Stamp")
                 }
                 .chartYAxisLabel(position: .leading, alignment: .center) {
-                    Text("Power (Wh)")
+                    Text("Power (kWh)")
                 }
                 
             } else {
@@ -256,8 +275,9 @@ struct GraphingView_Previews: PreviewProvider {
     @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
     @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
     @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
+    @State static var rate = 0.0
     
     static var previews: some View {
-        GraphingView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3)
+        GraphingView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3, rate: $rate)
     }
 }

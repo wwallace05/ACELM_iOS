@@ -13,8 +13,7 @@ struct OutletControl: View {
     @Binding var Outlet2: Outlet
     @Binding var Outlet3: Outlet
     
-    
-    
+    // View containing toggles for outlets "on/off"
     var body: some View {
         Section(header: Text("Oulet Control")){
             Toggle(Outlet1.name, isOn: $Outlet1.status)
@@ -70,8 +69,6 @@ struct OutletControl: View {
                         var _: Void = Database.database().reference().child("sensor3status").setValue(1)
                     }
                 }
-            
-            
         }
     }
     

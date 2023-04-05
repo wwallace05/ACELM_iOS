@@ -19,8 +19,9 @@ struct SettingsView: View {
     
     @State var showingAlert = false
     
-    //@Binding var coordinates: (lat: Double, lon: Double)
     
+    // Settings view allows users to edit the names of the outlets
+    // These names are saved in local storage
     var body: some View {
         Section(header: Text("Outlet Names")) {
             TextField("Outlet 1", text: $Outlet1_name)
@@ -47,28 +48,26 @@ struct SettingsView: View {
 //            }), secondaryButton: .cancel())
 //        }
         
-        Section(header: Text("Location Services")) {
-            Text("")
-            
-//            Button("Update to current location") {
-//                self.showingAlert = true
-//            }
-        }
+//        Section(header: Text("Location Services")) {
+//            Text("")
+//
+////            Button("Update to current location") {
+////                self.showingAlert = true
+////            }
+//        }
 
     }
     
+    // Saves the new names input by user to local storage
     func updateNames(){
         Outlet1.name = "\(Outlet1_name)"
         Outlet2.name = "\(Outlet2_name)"
         Outlet3.name = "\(Outlet3_name)"
         
-        //ContentView(Outlet1_name: $Outlet1_name, Outlet2_name: $Outlet2_name, Outlet3_name: $Outlet3_name).updateNames()
-        
         print(">>>> Updated Names")
         print(">>>> O1 [\(Outlet1.name)]")
         print(">>>> O2 [\(Outlet2.name)]")
         print(">>>> O3 [\(Outlet3.name)]")
-
     }
 }
 

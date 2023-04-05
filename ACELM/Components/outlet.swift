@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import OrderedCollections
 
-// when integrating, each outlet should ask the server what its status is and use that
+// Outlet structure. One for each physical outlet
 struct Outlet{
     var name: String
     var status: Bool
@@ -25,15 +25,13 @@ struct Outlet{
     var dayPowerStream: [powerDataPointSummary] = []
     var weekPowerStream: [powerDataPointSummary] = []
     
+    // UNUSED
     mutating func appendData(Data :powerDataPoint){
         graphablePowerStream.append(Data)
     }
 
+    // UNUSED
     mutating func appendData(Data :powerDataPointSummary){
         datedPowerStream.append(Data)
     }
 }
-
-//struct datedDataPoint: Identifiable{
-//    
-//}

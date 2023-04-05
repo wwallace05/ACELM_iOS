@@ -28,26 +28,25 @@ import OrderedCollections
 @main
 struct ACELM: App {
     
+    // Internally Stored Variables
     @AppStorage("Outlet1_name") var Outlet1_name = "Outlet 1"
     @AppStorage("Outlet2_name") var Outlet2_name = "Outlet 2"
     @AppStorage("Outlet3_name") var Outlet3_name = "Outlet 3"
     
     @AppStorage("SavedProvider") var SavedProvider = "None"
     @AppStorage("SavedRate") var SavedRate = 0.0
-    
-//    @State var Outlet1 = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
-//    @State var Outlet2 = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
-//    @State var Outlet3 = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
-//    
+
+    // active variables
     @State var rate = 0.0
     @State var provider = ""
     
-    
+    // Initialize Firebase
     init(){
         FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
         FirebaseApp.configure()
     }
-       
+    
+    // ContentView is "Home Page"
     var body: some Scene {
         WindowGroup {
             //ContentView(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3, rate: $rate)
