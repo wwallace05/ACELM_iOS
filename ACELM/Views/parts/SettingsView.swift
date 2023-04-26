@@ -19,6 +19,8 @@ struct SettingsView: View {
     
     @State var showingAlert = false
     
+    @State var selectedRateType = rateType.Residential
+    
     
     // Settings view allows users to edit the names of the outlets
     // These names are saved in local storage
@@ -56,6 +58,7 @@ struct SettingsView: View {
 ////            }
 //        }
 
+        
     }
     
     // Saves the new names input by user to local storage
@@ -72,9 +75,9 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
-    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
     
     @State static var Outlet1_name = "Outlet 1"
     @State static var Outlet2_name = "Outlet 2"

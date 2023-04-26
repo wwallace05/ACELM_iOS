@@ -78,9 +78,9 @@ struct rtdb_test: View {
 
 
 struct rtdb_test_Previews: PreviewProvider {
-    @State static var Outlet1: Outlet = Outlet(name: "name1", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet2: Outlet = Outlet(name: "name2", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet3: Outlet = Outlet(name: "name3", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet1: Outlet = Outlet(name: "name1", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State static var Outlet2: Outlet = Outlet(name: "name2", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State static var Outlet3: Outlet = Outlet(name: "name3", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
     
     static var previews: some View {
         rtdb_test(Outlet1: $Outlet1, Outlet2: $Outlet2, Outlet3: $Outlet3)

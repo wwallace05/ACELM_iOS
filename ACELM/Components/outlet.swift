@@ -13,6 +13,7 @@ import OrderedCollections
 struct Outlet{
     var name: String
     var status: Bool
+    var latestPowerValue: Double
     
     // need to phase out
     var powerStream: OrderedDictionary<Double, Double>
@@ -24,6 +25,10 @@ struct Outlet{
     var hourPowerStream: [powerDataPointSummary] = []
     var dayPowerStream: [powerDataPointSummary] = []
     var weekPowerStream: [powerDataPointSummary] = []
+    
+    mutating func getInstantPower() -> Double {
+        return minutePowerStream.last?.powerValue ?? 1.0
+    }
     
     // UNUSED
     mutating func appendData(Data :powerDataPoint){

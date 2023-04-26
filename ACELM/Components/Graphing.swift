@@ -27,7 +27,7 @@ struct powerDataPointSummary: Identifiable{
 
 // Time frames for graphing
 enum viewTimeFrame: String, CaseIterable, Identifiable{
-    case Minute, Hour, Day, Week, All
+    case Minute, Hour, Day, Week
     var id: Self{self}
 }
 

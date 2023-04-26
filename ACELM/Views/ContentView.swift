@@ -24,9 +24,9 @@ struct ContentView: View {
     @Binding var SavedRate: Double
     @Binding var SavedProvider: String
     
-    @State var Outlet1 = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
-    @State var Outlet2 = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
-    @State var Outlet3 = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
+    @State var Outlet1 = Outlet(name: "Outlet 1", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State var Outlet2 = Outlet(name: "Outlet 2", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State var Outlet3 = Outlet(name: "Outlet 3", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
     
     //@State var rate = 0.0
     @Binding var rate: Double
@@ -123,9 +123,9 @@ struct SettingsViewWrap: View {
 
 // will not apear in final rollout
 struct ContentView_Previews: PreviewProvider {
-    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, powerStream: [0.0:0.0])
-    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, powerStream: [0.0:0.0])
+    @State static var Outlet1: Outlet = Outlet(name: "Outlet 1", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State static var Outlet2: Outlet = Outlet(name: "Outlet 2", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
+    @State static var Outlet3: Outlet = Outlet(name: "Outlet 3", status: true, latestPowerValue: 0.0, powerStream: [0.0:0.0])
     @State static var rate = 0.0
     @State static var provider = ""
     
